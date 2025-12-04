@@ -1,4 +1,8 @@
-# Manim Animation Project Rules: Manim Animation Development
+---
+alwaysApply: true
+---
+
+# 🎬 Manim Animation Project Rules
 
 ## Core Principle: Preserve Development Richness
 
@@ -99,7 +103,7 @@ When creating Manim animations, automatically capture and preserve the full deve
 
 ### Naming Convention:
 - **Use numbers:** `01_`, `02_`, `03_` etc. for easy cross-referencing
-- **Descriptive names:** Clear, intuitive names (e.g., `Poles_and_Zeros`, `Repository_Intro`)
+- **Descriptive names:** Clear, intuitive names (e.g., `Repository_Intro`, `Poles_and_Zeros`)
 - **Consistent across folders:** Same number and name pattern in `code/`, `videos/`, `sounds/`, `docs/`
 
 ### Structure:
@@ -244,6 +248,32 @@ manim/
 - Easy to see what belongs together
 - Chronological exploration possible
 - Clear organization for future additions
+
+---
+
+## 🎓 Concept Visualization Guidelines
+
+### When User Describes a Concept:
+
+1. **Capture the Core Concept:**
+   - What mathematical/physical concept?
+   - What's the key insight to convey?
+   - What's the "aha!" moment?
+
+2. **Identify Visual Metaphors:**
+   - What visual representation makes it intuitive?
+   - What animations help understanding?
+   - What comparisons or analogies work?
+
+3. **Document Educational Approach:**
+   - How to build understanding progressively?
+   - What background knowledge assumed?
+   - What common misconceptions to address?
+
+4. **Save Prompt Patterns:**
+   - What prompt phrasing worked?
+   - How did the concept description evolve?
+   - What visual requests were most effective?
 
 ---
 
