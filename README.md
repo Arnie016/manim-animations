@@ -2,11 +2,13 @@
 
 Visualizing complex math through beautiful animations.
 
+📹 [Watch Intro](videos/repo_intro.mp4)
+
 ## Current Animation
 
 **Polar Poles & Zeros** - Split-screen visualization of transfer functions with progressive pole/zero addition.
 
-📹 [Watch Video](videos/PolarPolesZerosEducational.mp4) | 📝 [Code](code/polar_poles_zeros_educational.py)
+📹 [Full Video](videos/PolarPolesZerosEducational.mp4) | 📝 [Code](code/polar_poles_zeros_educational.py)
 
 ## Quick Start
 
