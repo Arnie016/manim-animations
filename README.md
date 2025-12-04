@@ -4,12 +4,11 @@ Visualizing complex math through beautiful animations.
 
 ## 🎬 Intro Video
 
-<video width="100%" controls>
-  <source src="https://github.com/Arnie016/manim-animations/raw/main/videos/repo_intro.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+[![Repo Intro Video](https://img.youtube.com/vi/7rnUQ21SjiE/maxresdefault.jpg)](https://www.youtube.com/watch?v=7rnUQ21SjiE)
 
-Or watch directly: [videos/repo_intro.mp4](videos/repo_intro.mp4)
+**Watch on YouTube:** [https://www.youtube.com/watch?v=7rnUQ21SjiE](https://www.youtube.com/watch?v=7rnUQ21SjiE)
+
+Or download: [videos/repo_intro.mp4](videos/repo_intro.mp4)
 
 ## Current Animation
 
