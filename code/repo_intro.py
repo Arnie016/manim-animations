@@ -116,16 +116,16 @@ class RepoIntro(Scene):
         quote_container = VGroup(quote, *bg_animations_quote, title)
         self.play(
             quote_container.animate.scale(1.2),
-            run_time=4.0,
+            run_time=4.5,
             rate_func=smooth
         )
         
-        self.wait(1.0)
+        self.wait(2.0)
         
         # Final fade out
         all_objects = VGroup(quote, *bg_animations_quote, title)
-        self.play(FadeOut(all_objects), run_time=1.2)
-        self.wait(0.5)
+        self.play(FadeOut(all_objects), run_time=1.0)
+        self.wait(0.3)
     
     def create_background_animations(self):
         """Create various background animations"""
