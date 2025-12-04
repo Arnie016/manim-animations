@@ -81,41 +81,27 @@ class RepoIntro(Scene):
         quote = VGroup(quote_part1, quote_part2, quote_part3).arrange(DOWN, buff=0.2)
         quote.move_to(ORIGIN)
         
-        # Spark effect
-        spark_circle = Circle(radius=0.9, stroke_color=GOLD, stroke_width=3, stroke_opacity=0.7)
-        spark_circle.move_to(quote_part2.get_center())
-        spark_particles = VGroup(*[
-            Dot(radius=0.06, color=GOLD).move_to(
-                spark_circle.get_center() + 0.9 * np.array([np.cos(angle), np.sin(angle), 0])
-            )
-            for angle in np.linspace(0, 2*np.pi, 12, endpoint=False)
-        ])
-        spark_group = VGroup(spark_circle, spark_particles)
-        
         # More background animations for quote
         bg_animations_quote = self.create_background_animations()
         
         self.play(
             FadeIn(quote),
-            FadeIn(spark_group),
             *[FadeIn(anim) for anim in bg_animations_quote],
             run_time=1.0
         )
         
-        # Animate spark pulsing
+        # Subtle emphasis on "spark" word
         self.play(
-            spark_group.animate.scale(1.15),
-            quote_part2.animate.scale(1.1),
-            run_time=0.6
+            quote_part2.animate.scale(1.05),
+            run_time=0.5
         )
         self.play(
-            spark_group.animate.scale(1/1.15),
-            quote_part2.animate.scale(1/1.1),
-            run_time=0.6
+            quote_part2.animate.scale(1/1.05),
+            run_time=0.5
         )
         
         # Continue zooming during quote
-        quote_container = VGroup(quote, spark_group, *bg_animations_quote)
+        quote_container = VGroup(quote, *bg_animations_quote)
         self.play(
             quote_container.animate.scale(1.2),
             run_time=4.0,
@@ -125,7 +111,7 @@ class RepoIntro(Scene):
         self.wait(1.0)
         
         # Final fade out
-        all_objects = VGroup(quote, spark_group, *bg_animations_quote, title)
+        all_objects = VGroup(quote, *bg_animations_quote, title)
         self.play(FadeOut(all_objects), run_time=1.2)
         self.wait(0.5)
     
