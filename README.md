@@ -28,4 +28,12 @@ python3 -m manim code/polar_poles_zeros_educational.py PolarPolesZerosEducationa
 
 - `code/` - Animation scripts
 - `videos/` - Rendered MP4s
+- `sounds/` - Audio files (MP3, WAV) for each animation
 - `docs/` - Documentation
+
+## Audio
+
+Each animation may have accompanying audio. See [Audio Documentation](docs/AUDIO.md) for details.
+
+**Current audio:**
+- `repo_intro.mp3` - Background music for intro video (ElevenLabs)
