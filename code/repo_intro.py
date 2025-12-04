@@ -10,13 +10,14 @@ class RepoIntro(Scene):
     def construct(self):
         self.camera.background_color = "#0a0a1e"
         
-        # Add background music
+        # Add background music (trimmed to match video duration ~12 seconds)
         # Note: Requires ffmpeg/ffprobe to be installed for audio support
         import os
         sound_file = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "sounds", "repo_intro.mp3"))
         if os.path.exists(sound_file):
             try:
-                self.add_sound(sound_file)
+                # Add sound with duration limit to match video (~12 seconds)
+                self.add_sound(sound_file, time_offset=0, duration=12.0)
             except Exception:
                 # If audio fails (e.g., ffprobe not found), continue without it
                 pass
