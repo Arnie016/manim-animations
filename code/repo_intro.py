@@ -87,27 +87,8 @@ class RepoIntro(Scene):
         self.play(
             FadeIn(quote),
             *[FadeIn(anim) for anim in bg_animations_quote],
-            run_time=1.0
+            run_time=0.6
         )
-        
-        # Animate sine wave changing phase
-        sine_wave = None
-        for anim in bg_animations_quote:
-            if isinstance(anim, VMobject) and len(anim.points) > 30:  # Likely the sine wave
-                sine_wave = anim
-                break
-        
-        if sine_wave:
-            # Create phase-shifted sine wave
-            sine_x = np.linspace(0, 2*np.pi, 40)
-            sine_y_new = np.sin(sine_x + np.pi/3) * 0.35
-            sine_curve_new = VMobject()
-            sine_curve_new.set_points_as_corners([
-                [x * 0.25 + 5, sine_y_new[i] + 0.5, 0]
-                for i, x in enumerate(sine_x)
-            ])
-            sine_curve_new.set_stroke(color="#00FFFF", width=1.5)
-            self.play(Transform(sine_wave, sine_curve_new), run_time=1.5)
         
         # Subtle emphasis on "spark" word
         self.play(
@@ -138,78 +119,78 @@ class RepoIntro(Scene):
         """Create various background animations"""
         animations = VGroup()
         
-        # Planets orbiting (left side)
-        planet1 = Dot(radius=0.12, color=BLUE).shift(LEFT * 5 + UP * 2)
-        planet2 = Dot(radius=0.1, color=GREEN).shift(LEFT * 5.5 + UP * 1)
-        planet_orbit1 = Circle(radius=0.7, stroke_color=BLUE, stroke_width=1, stroke_opacity=0.25).move_to(LEFT * 5 + UP * 2)
-        planet_orbit2 = Circle(radius=0.5, stroke_color=GREEN, stroke_width=1, stroke_opacity=0.25).move_to(LEFT * 5.5 + UP * 1)
+        # Planets orbiting (left side) - more subtle
+        planet1 = Dot(radius=0.08, color=BLUE).shift(LEFT * 5 + UP * 2)
+        planet2 = Dot(radius=0.07, color=GREEN).shift(LEFT * 5.5 + UP * 1)
+        planet_orbit1 = Circle(radius=0.6, stroke_color=BLUE, stroke_width=0.8, stroke_opacity=0.15).move_to(LEFT * 5 + UP * 2)
+        planet_orbit2 = Circle(radius=0.45, stroke_color=GREEN, stroke_width=0.8, stroke_opacity=0.15).move_to(LEFT * 5.5 + UP * 1)
         animations.add(planet_orbit1, planet_orbit2, planet1, planet2)
         
-        # Pendulum (right side)
-        pendulum_pivot = Dot(radius=0.06, color=WHITE).shift(RIGHT * 5 + UP * 2.5)
-        pendulum_length = 1.0
-        pendulum_bob = Dot(radius=0.1, color=YELLOW).shift(RIGHT * 5 + UP * 2.5 + DOWN * pendulum_length)
+        # Pendulum (right side) - more subtle
+        pendulum_pivot = Dot(radius=0.05, color=WHITE).shift(RIGHT * 5 + UP * 2.5)
+        pendulum_length = 0.9
+        pendulum_bob = Dot(radius=0.08, color=YELLOW).shift(RIGHT * 5 + UP * 2.5 + DOWN * pendulum_length)
         pendulum_string = Line(
             pendulum_pivot.get_center(),
             pendulum_bob.get_center(),
             stroke_color=GRAY_B,
-            stroke_width=1.5
+            stroke_width=1
         )
         animations.add(pendulum_pivot, pendulum_string, pendulum_bob)
         
-        # Equations (top corners) - varied
-        eq1 = MathTex(r"e^{i\pi} + 1 = 0", font_size=22, color=GRAY_A).shift(LEFT * 4 + UP * 2.8)
-        eq2 = MathTex(r"E = mc^2", font_size=22, color=GRAY_A).shift(RIGHT * 4 + UP * 2.8)
+        # Equations (top corners) - more subtle
+        eq1 = MathTex(r"e^{i\pi} + 1 = 0", font_size=20, color=GRAY_B).shift(LEFT * 4 + UP * 2.8)
+        eq2 = MathTex(r"E = mc^2", font_size=20, color=GRAY_B).shift(RIGHT * 4 + UP * 2.8)
         animations.add(eq1, eq2)
         
-        # Relativistic equation (left middle)
-        eq_rel = MathTex(r"ds^2 = -dt^2 + dx^2", font_size=18, color=GRAY_B).shift(LEFT * 4.5 + UP * 0.5)
+        # Relativistic equation (left middle) - more subtle
+        eq_rel = MathTex(r"ds^2 = -dt^2 + dx^2", font_size=16, color=GRAY_C).shift(LEFT * 4.5 + UP * 0.5)
         animations.add(eq_rel)
         
-        # Black hole spacetime (right middle)
-        eq_bh = MathTex(r"r_s = \frac{2GM}{c^2}", font_size=18, color=GRAY_B).shift(RIGHT * 4.5 + UP * 0.5)
+        # Black hole spacetime (right middle) - more subtle
+        eq_bh = MathTex(r"r_s = \frac{2GM}{c^2}", font_size=16, color=GRAY_C).shift(RIGHT * 4.5 + UP * 0.5)
         animations.add(eq_bh)
         
-        # Pole-zero plot (left bottom)
+        # Pole-zero plot (left bottom) - more subtle
         pz_axes = Axes(
             x_range=[-1.5, 0.5, 0.5],
             y_range=[-1, 1, 0.5],
-            axis_config={"color": GRAY_C, "stroke_width": 1},
+            axis_config={"color": GRAY_C, "stroke_width": 0.8},
             tips=False,
-            x_length=1.0,
-            y_length=1.0,
+            x_length=0.9,
+            y_length=0.9,
         ).shift(LEFT * 4.5 + DOWN * 2)
         
         pole_mark = VGroup(
-            Line(UP*0.08+LEFT*0.08, DOWN*0.08+RIGHT*0.08, stroke_width=1.5, color=RED),
-            Line(UP*0.08+RIGHT*0.08, DOWN*0.08+LEFT*0.08, stroke_width=1.5, color=RED)
+            Line(UP*0.06+LEFT*0.06, DOWN*0.06+RIGHT*0.06, stroke_width=1, color=RED),
+            Line(UP*0.06+RIGHT*0.06, DOWN*0.06+LEFT*0.06, stroke_width=1, color=RED)
         ).move_to(pz_axes.coords_to_point(-0.8, 0.3))
         
-        zero_mark = Circle(radius=0.06, stroke_width=1.5, stroke_color=GREEN).move_to(
+        zero_mark = Circle(radius=0.05, stroke_width=1, stroke_color=GREEN).move_to(
             pz_axes.coords_to_point(-0.5, -0.4)
         )
         animations.add(pz_axes, pole_mark, zero_mark)
         
-        # Frequency analysis graph (right bottom)
-        freq_x = np.linspace(0, 4*np.pi, 80)
-        freq_y = np.sin(freq_x) * 0.25 + np.sin(2*freq_x) * 0.12
+        # Frequency analysis graph (right bottom) - more subtle
+        freq_x = np.linspace(0, 4*np.pi, 60)
+        freq_y = np.sin(freq_x) * 0.2 + np.sin(2*freq_x) * 0.1
         freq_graph = VMobject()
         freq_graph.set_points_as_corners([
             [x * 0.25 + 4.5, freq_y[i] - 2, 0]
             for i, x in enumerate(freq_x)
         ])
-        freq_graph.set_stroke(color=BLUE, width=1.5)
+        freq_graph.set_stroke(color=BLUE, width=1)
         animations.add(freq_graph)
         
-        # Animated sine wave (right side) - will change phase
-        sine_x = np.linspace(0, 2*np.pi, 40)
-        sine_y = np.sin(sine_x) * 0.35
+        # Static sine wave (right side) - no animation, just visual
+        sine_x = np.linspace(0, 2*np.pi, 30)
+        sine_y = np.sin(sine_x) * 0.3
         sine_curve = VMobject()
         sine_curve.set_points_as_corners([
             [x * 0.25 + 5, sine_y[i] + 0.5, 0]
             for i, x in enumerate(sine_x)
         ])
-        sine_curve.set_stroke(color="#00FFFF", width=1.5)
+        sine_curve.set_stroke(color="#00FFFF", width=1)
         animations.add(sine_curve)
         
         return animations
