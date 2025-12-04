@@ -2,19 +2,17 @@
 
 Visualizing complex math through beautiful animations.
 
-## 🎬 Intro Video
+## 🎬 Animations
 
-[![Repo Intro Video](https://img.youtube.com/vi/7rnUQ21SjiE/maxresdefault.jpg)](https://www.youtube.com/watch?v=7rnUQ21SjiE)
+### 01. Poles and Zeroes
+Educational split-screen visualization of transfer functions with progressive pole/zero addition.
 
-**Watch on YouTube:** [https://www.youtube.com/watch?v=7rnUQ21SjiE](https://www.youtube.com/watch?v=7rnUQ21SjiE)
+📹 [Video](videos/01_Poles_and_Zeroes.mp4) | 📝 [Code](code/01_poles_and_zeros.py) | 📄 [Docs](docs/01_Poles_and_Zeroes.md)
 
-Or download: [videos/repo_intro.mp4](videos/repo_intro.mp4)
+### 02. Repository Intro
+12-second intro video showcasing repository structure, author info, and educational philosophy.
 
-## Current Animation
-
-**Polar Poles & Zeros** - Split-screen visualization of transfer functions with progressive pole/zero addition.
-
-📹 [Full Video](videos/PolarPolesZerosEducational.mp4) | 📝 [Code](code/polar_poles_zeros_educational.py)
+📹 [YouTube](https://www.youtube.com/watch?v=7rnUQ21SjiE) | 📝 [Code](code/02_repo_intro.py) | 📄 [Docs](docs/02_Repo_Intro.md) | 🎵 [Sound](sounds/02_Repo_Intro.mp3)
 
 ## Quick Start
 
@@ -22,7 +20,7 @@ Or download: [videos/repo_intro.mp4](videos/repo_intro.mp4)
 git clone https://github.com/Arnie016/manim-animations.git
 cd manim-animations
 pip install -r requirements.txt
-python3 -m manim code/polar_poles_zeros_educational.py PolarPolesZerosEducational -pqh
+python3 -m manim code/01_poles_and_zeros.py PolarPolesZerosEducational -pqh
 ```
 
 ## Libraries
@@ -37,9 +35,12 @@ python3 -m manim code/polar_poles_zeros_educational.py PolarPolesZerosEducationa
 - `sounds/` - Audio files (MP3, WAV) for each animation
 - `docs/` - Documentation
 
-## Audio
+## Structure
 
-Each animation may have accompanying audio. See [Audio Documentation](docs/AUDIO.md) for details.
+Each animation is organized as a bundle:
+- **Video:** `videos/XX_Name.mp4`
+- **Code:** `code/XX_name.py`
+- **Sound:** `sounds/XX_Name.mp3` (if applicable)
+- **Docs:** `docs/XX_Name.md` (prompts, insights, development history)
 
-**Current audio:**
-- `repo_intro.mp3` - Background music for intro video (ElevenLabs)
+See individual doc files for detailed development history, prompts used, and insights.
