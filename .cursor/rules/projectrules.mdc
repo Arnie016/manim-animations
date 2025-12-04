@@ -1,0 +1,250 @@
+# Manim Animation Project Rules: Manim Animation Development
+
+## Core Principle: Preserve Development Richness
+
+When creating Manim animations, automatically capture and preserve the full development journey including prompts, conversations, insights, and learnings.
+
+---
+
+## 📝 Automatic Documentation Requirements
+
+### When Creating a New Animation:
+
+1. **Create Numbered Bundle Structure:**
+   - Video: `videos/XX_Animation_Name.mp4`
+   - Code: `code/XX_Animation_Name.py`
+   - Sound: `sounds/XX_Animation_Name.mp3` (if applicable)
+   - Docs: `docs/XX_Animation_Name.md` (REQUIRED)
+
+2. **Documentation Template** (in `docs/XX_Animation_Name.md`):
+   ```markdown
+   # Animation Name
+   
+   ## Video
+   - **File:** `videos/XX_Animation_Name.mp4`
+   - **Code:** `code/XX_Animation_Name.py`
+   - **Sound:** `sounds/XX_Animation_Name.mp3` (if applicable)
+   
+   ## Description
+   [What the animation shows/teaches]
+   
+   ## Development History
+   
+   ### Initial Prompts
+   - [List all prompts used, verbatim]
+   - [Include user feedback and requests]
+   
+   ### What Worked
+   - [Techniques, approaches, code patterns that succeeded]
+   - [Visual elements that enhanced understanding]
+   - [Animation timing/flow that worked well]
+   
+   ### What Didn't Work / Challenges
+   - [Failed approaches and why]
+   - [Technical issues encountered]
+   - [User feedback that led to changes]
+   
+   ### Key Insights
+   - [Learnings about Manim]
+   - [Visual design principles discovered]
+   - [Educational effectiveness observations]
+   - [Performance considerations]
+   
+   ### Technical Notes
+   - [Code patterns used]
+   - [Manim features leveraged]
+   - [Configuration settings]
+   - [Dependencies or special requirements]
+   
+   ### Prompt Style Used
+   - [How prompts evolved]
+   - [What made prompts effective]
+   - [Iteration patterns]
+   ```
+
+---
+
+## 🧠 Memory Capture Rules
+
+### Automatically Save to Memory:
+
+1. **When User Provides Feedback:**
+   - Save the exact feedback/request
+   - Note what was changed in response
+   - Record outcome (worked/didn't work)
+
+2. **When Solving Problems:**
+   - Document the problem encountered
+   - Save the solution approach
+   - Note any workarounds or alternatives tried
+
+3. **When User Describes Concepts:**
+   - Capture the concept being visualized
+   - Save the educational goal
+   - Note visual metaphors or analogies used
+
+4. **When Iterating:**
+   - Track version changes
+   - Save "before" and "after" states
+   - Record user satisfaction with changes
+
+5. **When Using New Techniques:**
+   - Document Manim features discovered
+   - Save code patterns that worked
+   - Note performance implications
+
+---
+
+## 📋 File Organization Rules
+
+### Naming Convention:
+- **Use numbers:** `01_`, `02_`, `03_` etc. for easy cross-referencing
+- **Descriptive names:** Clear, intuitive names (e.g., `Poles_and_Zeros`, `Repository_Intro`)
+- **Consistent across folders:** Same number and name pattern in `code/`, `videos/`, `sounds/`, `docs/`
+
+### Structure:
+```
+manim/
+├── README.md (only one!)
+├── code/
+│   ├── 01_Repository_Intro.py
+│   ├── 02_Poles_and_Zeros.py
+│   └── XX_Animation_Name.py
+├── videos/
+│   ├── 01_Repository_Intro.mp4
+│   ├── 02_Poles_and_Zeros.mp4
+│   └── XX_Animation_Name.mp4
+├── sounds/
+│   ├── 01_Repository_Intro.mp3
+│   └── XX_Animation_Name.mp3 (if applicable)
+└── docs/
+    ├── 01_Repository_Intro.md
+    ├── 02_Poles_and_Zeros.md
+    └── XX_Animation_Name.md (REQUIRED for each animation)
+```
+
+---
+
+## 💬 Conversation Capture Guidelines
+
+### What to Capture:
+
+1. **User Intent:**
+   - What concept are they trying to visualize?
+   - What's the educational goal?
+   - Who is the target audience?
+
+2. **Iteration History:**
+   - Each round of feedback
+   - What changed and why
+   - User satisfaction levels
+
+3. **Technical Discoveries:**
+   - Manim quirks or limitations found
+   - Workarounds developed
+   - Performance optimizations
+
+4. **Design Decisions:**
+   - Why certain visual choices were made
+   - What alternatives were considered
+   - What worked better than expected
+
+5. **Prompt Evolution:**
+   - How prompts improved over iterations
+   - What phrasing was most effective
+   - What led to breakthrough moments
+
+---
+
+## 🎯 When Creating New Animations
+
+### Step-by-Step Process:
+
+1. **Create numbered files:**
+   ```bash
+   code/XX_Animation_Name.py
+   docs/XX_Animation_Name.md (create immediately!)
+   ```
+
+2. **Start documentation:**
+   - Add description
+   - Note initial concept/goal
+   - Record first prompts used
+
+3. **During Development:**
+   - Update docs after each significant change
+   - Note what worked/didn't work
+   - Capture user feedback verbatim
+
+4. **After Completion:**
+   - Finalize technical notes
+   - Summarize key insights
+   - Document prompt style used
+
+---
+
+## 🔍 Memory Management
+
+### Always Save:
+- ✅ Exact user prompts and requests
+- ✅ Technical solutions and workarounds
+- ✅ User feedback (positive and negative)
+- ✅ Design decisions and rationale
+- ✅ Code patterns that worked well
+- ✅ Manim features discovered
+- ✅ Performance considerations
+
+### Use Memory Tags:
+- `#manim-technique` - For Manim-specific learnings
+- `#visual-design` - For design principles
+- `#educational` - For teaching effectiveness
+- `#performance` - For optimization insights
+- `#prompt-style` - For effective prompting patterns
+
+---
+
+## 📚 Documentation Quality Standards
+
+### Good Documentation Includes:
+- ✅ Complete prompt history
+- ✅ Clear before/after comparisons
+- ✅ Specific code examples
+- ✅ Visual design rationale
+- ✅ User feedback integration
+- ✅ Technical challenges and solutions
+
+### Avoid:
+- ❌ Vague descriptions
+- ❌ Missing context
+- ❌ Incomplete prompt history
+- ❌ Skipping "what didn't work" section
+
+---
+
+## 🎬 Animation Development Best Practices
+
+1. **Start with concept clarity:** Understand what you're visualizing before coding
+2. **Iterate based on feedback:** Don't assume, ask and adapt
+3. **Document as you go:** Don't wait until the end
+4. **Preserve the journey:** The process is as valuable as the result
+5. **Learn from failures:** Document what didn't work and why
+
+---
+
+## 🔗 Cross-Reference System
+
+### Easy Exploration:
+- Same number = same animation across all folders
+- `01_` files relate to each other
+- `02_` files relate to each other
+- Numbers show chronological order
+
+### Benefits:
+- Quick navigation between related files
+- Easy to see what belongs together
+- Chronological exploration possible
+- Clear organization for future additions
+
+---
+
+**Remember:** The goal is to preserve the richness of insights so future animations can learn from past development journeys. Every prompt, conversation, and insight matters.

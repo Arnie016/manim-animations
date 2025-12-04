@@ -20,7 +20,7 @@ Educational split-screen visualization of transfer functions with progressive po
 git clone https://github.com/Arnie016/manim-animations.git
 cd manim-animations
 pip install -r requirements.txt
-python3 -m manim code/Poles_and_Zeros.py PolarPolesZerosEducational -pqh
+python3 -m manim code/02_Poles_and_Zeros.py PolarPolesZerosEducational -pqh
 ```
 
 ## Libraries
@@ -30,10 +30,12 @@ python3 -m manim code/Poles_and_Zeros.py PolarPolesZerosEducational -pqh
 
 ## Structure
 
-Each animation is organized as a bundle:
-- **Video:** `videos/Name.mp4`
-- **Code:** `code/Name.py`
-- **Sound:** `sounds/Name.mp3` (if applicable)
-- **Docs:** `docs/Name.md` (prompts, insights, development history, what worked/didn't)
+Each animation is organized as a numbered bundle:
+- **Video:** `videos/XX_Name.mp4`
+- **Code:** `code/XX_Name.py`
+- **Sound:** `sounds/XX_Name.mp3` (if applicable)
+- **Docs:** `docs/XX_Name.md` (prompts, insights, development history, what worked/didn't)
+
+Numbers make it easy to relate files across folders and explore chronologically.
 
 See individual doc files for detailed development history, prompts used, and insights.

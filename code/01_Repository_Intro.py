@@ -13,7 +13,7 @@ class RepoIntro(Scene):
         # Add background music (trimmed to match video duration ~12 seconds)
         # Note: Requires ffmpeg/ffprobe to be installed for audio support
         import os
-        sound_file = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "sounds", "Repository_Intro.mp3"))
+        sound_file = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "sounds", "01_Repository_Intro.mp3"))
         if os.path.exists(sound_file):
             try:
                 # Add sound with duration limit to match video (~12 seconds)
