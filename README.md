@@ -4,11 +4,9 @@ Visualizing complex math through beautiful animations.
 
 ## 🎬 Intro Video
 
-Click the link below to watch the intro video (GitHub will show a video player):
+**Click to watch:** [videos/repo_intro.mp4](videos/repo_intro.mp4)
 
-[![Repo Intro Video](videos/repo_intro.mp4)](videos/repo_intro.mp4)
-
-Or watch directly: [videos/repo_intro.mp4](videos/repo_intro.mp4)
+> Note: GitHub will display a video player when you click the link above. The video is 23 seconds with background music.
 
 ## Current Animation
 
