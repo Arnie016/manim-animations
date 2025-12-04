@@ -10,6 +10,9 @@ class RepoIntro(Scene):
     def construct(self):
         self.camera.background_color = "#0a0a1e"
         
+        # Start zoomed out, will zoom in throughout
+        initial_scale = 1.0
+        
         # Title
         title = Text("Manim Animations", font_size=72, color=WHITE, weight=BOLD)
         title.to_edge(UP, buff=0.6)
@@ -17,148 +20,186 @@ class RepoIntro(Scene):
         self.play(FadeIn(title), run_time=1.0)
         self.wait(0.3)
         
-        # Directory structure (centered)
-        structure_title = Text("Repository Structure", font_size=36, color=YELLOW)
-        structure_title.next_to(title, DOWN, buff=0.5)
+        # 1. Repository Structure
+        structure_title = Text("Repository Structure", font_size=42, color=YELLOW, weight=BOLD)
+        structure_title.move_to(ORIGIN + UP * 0.5)
         
-        structure_items = VGroup(
-            Text("code/", font_size=32, color=BLUE_A),
-            Text("videos/", font_size=32, color=GREEN_A),
-            Text("docs/", font_size=32, color=ORANGE),
-        ).arrange(DOWN, buff=0.3, aligned_edge=LEFT)
-        structure_items.next_to(structure_title, DOWN, buff=0.4)
+        code_desc = Text("code/ - Manim Python files", font_size=32, color=BLUE_A)
+        videos_desc = Text("videos/ - Rendered MP4 files", font_size=32, color=GREEN_A)
+        docs_desc = Text("docs/ - Prompt styles & development notes", font_size=32, color=ORANGE)
         
-        self.play(FadeIn(structure_title), run_time=0.6)
-        self.wait(0.2)
-        self.play(FadeIn(structure_items, lag_ratio=0.3), run_time=0.8)
-        self.wait(0.4)
+        structure_items = VGroup(code_desc, videos_desc, docs_desc).arrange(DOWN, buff=0.4)
+        structure_items.next_to(structure_title, DOWN, buff=0.6)
         
-        # Author info (centered)
-        author_name = Text("Arnav Salkade", font_size=40, color=WHITE, weight=BOLD)
-        author_info = Text("Computer Engineering at NUS", font_size=28, color=GRAY_A)
-        author_group = VGroup(author_name, author_info).arrange(DOWN, buff=0.2)
-        author_group.next_to(structure_items, DOWN, buff=0.6)
+        structure_group = VGroup(structure_title, structure_items)
         
+        self.play(FadeIn(structure_group), run_time=1.0)
+        self.wait(1.5)
+        self.play(FadeOut(structure_group), run_time=0.8)
+        self.wait(0.3)
+        
+        # 2. Name and Credentials
+        name = Text("Arnav Salkade", font_size=48, color=WHITE, weight=BOLD)
+        credentials = Text("Computer Engineering at NUS", font_size=32, color=GRAY_A)
+        email = Text("itsarnavsalkade@gmail.com (reach out!)", font_size=28, color=YELLOW)
+        
+        name_group = VGroup(name, credentials, email).arrange(DOWN, buff=0.3)
+        name_group.move_to(ORIGIN)
+        
+        self.play(FadeIn(name_group), run_time=1.0)
+        self.wait(2.0)
+        self.play(FadeOut(name_group), run_time=0.8)
+        self.wait(0.3)
+        
+        # 3. Goal (with background animations)
+        goal_text = Text("Goal: Use AI for storytelling and learning", font_size=36, color=WHITE)
+        goal_text.move_to(ORIGIN)
+        
+        # Background animations for goal
+        bg_animations_goal = self.create_background_animations()
+        
+        goal_container = VGroup(goal_text, *bg_animations_goal)
+        
+        self.play(FadeIn(goal_text), *[FadeIn(anim) for anim in bg_animations_goal], run_time=1.0)
+        
+        # Animate goal with zoom
         self.play(
-            FadeOut(structure_title, shift=UP*0.2),
-            FadeOut(structure_items, shift=UP*0.2),
-            FadeIn(author_group, shift=DOWN*0.2),
-            run_time=1.0
+            goal_container.animate.scale(1.15),
+            run_time=3.0,
+            rate_func=smooth
         )
-        self.wait(0.4)
         
-        # Goal (centered)
-        goal_title = Text("Goal:", font_size=32, color=YELLOW)
-        goal_text = Text("Use AI for storytelling and learning", font_size=28, color=WHITE)
-        goal_group = VGroup(goal_title, goal_text).arrange(RIGHT, buff=0.3)
-        goal_group.next_to(author_group, DOWN, buff=0.5)
+        self.wait(0.5)
+        self.play(FadeOut(goal_text), *[FadeOut(anim) for anim in bg_animations_goal], run_time=0.8)
+        self.wait(0.3)
         
-        self.play(FadeIn(goal_group), run_time=0.7)
-        self.wait(0.4)
+        # 4. Quote (with more background animations)
+        quote_part1 = Text('"Education is not a vessel to be filled', font_size=32, color=GRAY_A)
+        quote_part2 = Text('but a spark', font_size=44, color=GOLD, weight=BOLD)
+        quote_part3 = Text('to be ignited"', font_size=32, color=GRAY_A)
         
-        # Move everything up to make room for quote and side animations
-        center_group = VGroup(title, author_group, goal_group)
-        self.play(center_group.animate.shift(UP * 1.2), run_time=0.8)
-        
-        # Quote centered with emphasis
-        quote_part1 = Text('"Education is not a vessel to be filled', font_size=28, color=GRAY_A)
-        quote_part2 = Text('but a spark', font_size=36, color=GOLD, weight=BOLD)
-        quote_part3 = Text('to be ignited"', font_size=28, color=GRAY_A)
-        
-        quote = VGroup(quote_part1, quote_part2, quote_part3).arrange(DOWN, buff=0.15)
+        quote = VGroup(quote_part1, quote_part2, quote_part3).arrange(DOWN, buff=0.2)
         quote.move_to(ORIGIN)
         
-        # Add spark effect around "spark"
-        spark_circle = Circle(radius=0.8, stroke_color=GOLD, stroke_width=3, stroke_opacity=0.6)
+        # Spark effect
+        spark_circle = Circle(radius=0.9, stroke_color=GOLD, stroke_width=3, stroke_opacity=0.7)
         spark_circle.move_to(quote_part2.get_center())
         spark_particles = VGroup(*[
-            Dot(radius=0.05, color=GOLD).move_to(
-                spark_circle.get_center() + 0.8 * np.array([np.cos(angle), np.sin(angle), 0])
+            Dot(radius=0.06, color=GOLD).move_to(
+                spark_circle.get_center() + 0.9 * np.array([np.cos(angle), np.sin(angle), 0])
             )
-            for angle in np.linspace(0, 2*np.pi, 8, endpoint=False)
+            for angle in np.linspace(0, 2*np.pi, 12, endpoint=False)
         ])
         spark_group = VGroup(spark_circle, spark_particles)
         
-        self.play(FadeIn(quote), run_time=0.8)
-        self.wait(0.3)
+        # More background animations for quote
+        bg_animations_quote = self.create_background_animations()
+        
         self.play(
+            FadeIn(quote),
             FadeIn(spark_group),
+            *[FadeIn(anim) for anim in bg_animations_quote],
+            run_time=1.0
+        )
+        
+        # Animate spark pulsing
+        self.play(
+            spark_group.animate.scale(1.15),
             quote_part2.animate.scale(1.1),
             run_time=0.6
         )
         self.play(
-            spark_group.animate.scale(1.2),
-            quote_part2.animate.scale(1.0),
-            run_time=0.5
+            spark_group.animate.scale(1/1.15),
+            quote_part2.animate.scale(1/1.1),
+            run_time=0.6
         )
         
-        # Left side animation: s-plane with poles/zeros
-        left_axes = Axes(
-            x_range=[-2, 1, 1],
-            y_range=[-2, 2, 1],
-            axis_config={"color": GRAY_B, "stroke_width": 2},
-            tips=False,
-            x_length=2,
-            y_length=2,
-        ).shift(LEFT * 4.5)
-        
-        left_pole = VGroup(
-            Line(UP*0.12+LEFT*0.12, DOWN*0.12+RIGHT*0.12, stroke_width=3, color=RED),
-            Line(UP*0.12+RIGHT*0.12, DOWN*0.12+LEFT*0.12, stroke_width=3, color=RED)
-        ).move_to(left_axes.coords_to_point(-1, 0.5))
-        
-        left_zero = Circle(radius=0.1, stroke_width=2.5, stroke_color=GREEN).move_to(
-            left_axes.coords_to_point(-0.5, -0.8)
-        )
-        
-        left_group = VGroup(left_axes, left_pole, left_zero)
-        
-        # Right side animation: polar curve
-        omega = np.logspace(-1, 1, 150)
-        s = 1j * omega
-        H = 1.0 / ((s + 1) * (s + 0.5 - 0.8j) * (s + 0.5 + 0.8j))
-        magnitude = np.abs(H)
-        phase = np.unwrap(np.angle(H))
-        
-        def polar_func(t):
-            idx = min(int(t * (len(omega) - 1)), len(omega) - 1)
-            r = magnitude[idx] * 0.3
-            theta = phase[idx]
-            return np.array([r * np.cos(theta), r * np.sin(theta), 0])
-        
-        right_curve = ParametricFunction(
-            polar_func,
-            t_range=[0, 1],
-            stroke_width=3,
-            color=BLUE,
-        ).shift(RIGHT * 4.5)
-        
-        # Animate side visuals
+        # Continue zooming during quote
+        quote_container = VGroup(quote, spark_group, *bg_animations_quote)
         self.play(
-            FadeIn(left_group, shift=RIGHT*0.5),
-            FadeIn(right_curve, shift=LEFT*0.5),
-            run_time=1.0
+            quote_container.animate.scale(1.2),
+            run_time=4.0,
+            rate_func=smooth
         )
-        self.wait(0.3)
         
-        # Animate left: add another pole
-        left_pole2 = VGroup(
-            Line(UP*0.12+LEFT*0.12, DOWN*0.12+RIGHT*0.12, stroke_width=3, color=RED),
-            Line(UP*0.12+RIGHT*0.12, DOWN*0.12+LEFT*0.12, stroke_width=3, color=RED)
-        ).move_to(left_axes.coords_to_point(-1.5, -0.5))
-        
-        self.play(FadeIn(left_pole2), run_time=0.5)
-        
-        # Animate right: trace the curve
-        dot = Dot(color=BLUE, radius=0.08).move_to(right_curve.point_from_proportion(0))
-        self.add(dot)
-        self.play(MoveAlongPath(dot, right_curve), run_time=1.2, rate_func=linear)
-        self.wait(0.5)
-        
-        # Final hold
         self.wait(1.0)
         
-        # Fade out
-        all_objects = VGroup(center_group, quote, spark_group, left_group, left_pole2, right_curve, dot)
-        self.play(FadeOut(all_objects), run_time=1.0)
+        # Final fade out
+        all_objects = VGroup(quote, spark_group, *bg_animations_quote, title)
+        self.play(FadeOut(all_objects), run_time=1.2)
         self.wait(0.5)
+    
+    def create_background_animations(self):
+        """Create various background animations"""
+        animations = VGroup()
+        
+        # Planets orbiting (left side)
+        planet1 = Dot(radius=0.15, color=BLUE).shift(LEFT * 5 + UP * 2)
+        planet2 = Dot(radius=0.12, color=GREEN).shift(LEFT * 5.5 + UP * 1)
+        planet3 = Dot(radius=0.1, color=RED).shift(LEFT * 4.5 + DOWN * 1)
+        planet_orbit1 = Circle(radius=0.8, stroke_color=BLUE, stroke_width=1, stroke_opacity=0.3).move_to(LEFT * 5 + UP * 2)
+        planet_orbit2 = Circle(radius=0.6, stroke_color=GREEN, stroke_width=1, stroke_opacity=0.3).move_to(LEFT * 5.5 + UP * 1)
+        planet_orbit3 = Circle(radius=0.5, stroke_color=RED, stroke_width=1, stroke_opacity=0.3).move_to(LEFT * 4.5 + DOWN * 1)
+        animations.add(planet_orbit1, planet_orbit2, planet_orbit3, planet1, planet2, planet3)
+        
+        # Pendulum (right side)
+        pendulum_pivot = Dot(radius=0.08, color=WHITE).shift(RIGHT * 5 + UP * 2.5)
+        pendulum_length = 1.2
+        pendulum_bob = Dot(radius=0.12, color=YELLOW).shift(RIGHT * 5 + UP * 2.5 + DOWN * pendulum_length)
+        pendulum_string = Line(
+            pendulum_pivot.get_center(),
+            pendulum_bob.get_center(),
+            stroke_color=GRAY_B,
+            stroke_width=2
+        )
+        animations.add(pendulum_pivot, pendulum_string, pendulum_bob)
+        
+        # Equations (top corners)
+        eq1 = MathTex(r"e^{i\pi} + 1 = 0", font_size=24, color=GRAY_A).shift(LEFT * 4 + UP * 2.8)
+        eq2 = MathTex(r"\int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}", font_size=20, color=GRAY_A).shift(RIGHT * 4 + UP * 2.8)
+        animations.add(eq1, eq2)
+        
+        # Pole-zero plot (left bottom)
+        pz_axes = Axes(
+            x_range=[-1.5, 0.5, 0.5],
+            y_range=[-1, 1, 0.5],
+            axis_config={"color": GRAY_C, "stroke_width": 1},
+            tips=False,
+            x_length=1.2,
+            y_length=1.2,
+        ).shift(LEFT * 4.5 + DOWN * 2)
+        
+        pole_mark = VGroup(
+            Line(UP*0.1+LEFT*0.1, DOWN*0.1+RIGHT*0.1, stroke_width=2, color=RED),
+            Line(UP*0.1+RIGHT*0.1, DOWN*0.1+LEFT*0.1, stroke_width=2, color=RED)
+        ).move_to(pz_axes.coords_to_point(-0.8, 0.3))
+        
+        zero_mark = Circle(radius=0.08, stroke_width=2, stroke_color=GREEN).move_to(
+            pz_axes.coords_to_point(-0.5, -0.4)
+        )
+        animations.add(pz_axes, pole_mark, zero_mark)
+        
+        # Frequency analysis graph (right bottom)
+        freq_x = np.linspace(0, 4*np.pi, 100)
+        freq_y = np.sin(freq_x) * 0.3 + np.sin(2*freq_x) * 0.15
+        freq_graph = VMobject()
+        freq_graph.set_points_as_corners([
+            pz_axes.coords_to_point(x/2 - 1.5, freq_y[i])
+            for i, x in enumerate(freq_x)
+        ])
+        freq_graph.set_stroke(color=BLUE, width=2)
+        freq_graph.shift(RIGHT * 4.5 + DOWN * 2)
+        animations.add(freq_graph)
+        
+        # Sine wave (right side)
+        sine_x = np.linspace(0, 2*np.pi, 50)
+        sine_y = np.sin(sine_x) * 0.4
+        sine_curve = VMobject()
+        sine_curve.set_points_as_corners([
+            [x * 0.3 + 5, sine_y[i] + 0.5, 0]
+            for i, x in enumerate(sine_x)
+        ])
+        sine_curve.set_stroke(color="#00FFFF", width=2)
+        animations.add(sine_curve)
+        
+        return animations
