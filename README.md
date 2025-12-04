@@ -1,6 +1,10 @@
-# Manim Animation Project
+# 🎬 Manim Animations
 
-Educational animations created with Manim, focusing on control systems and transfer function visualizations.
+> **Visualizing complex math through beautiful animations**
+
+Educational animations that bring control systems theory to life. Watch transfer functions evolve, poles and zeros dance across the s-plane, and frequency responses trace elegant curves—all rendered in stunning detail with Manim.
+
+**Perfect for:** Students learning control systems, engineers visualizing transfer functions, or anyone who wants to see math in motion.
 
 ## 📁 Structure
 
@@ -11,15 +15,24 @@ manim/
 └── docs/          # Planning and documentation
 ```
 
-## 🎬 Current Animation
+## 🎬 Animations
 
-**Polar Poles & Zeros Educational** (`code/polar_poles_zeros_educational.py`)
-- Split-screen visualization showing s-plane (pole-zero map) and polar plot (Nyquist)
-- Progressive animation adding poles and zeros to demonstrate their effects
-- Educational commentary explaining phase angles and stability
+### 🎯 Polar Poles & Zeros Educational
+**File:** `code/polar_poles_zeros_educational.py`  
+**Video:** `videos/PolarPolesZerosEducational.mp4`
 
-### Watch the Animation
+Watch transfer functions come alive as poles and zeros are added progressively. This split-screen visualization shows:
+- **Left:** Real-time s-plane pole-zero placement (X marks poles, O marks zeros)
+- **Right:** Live polar plot (Nyquist) tracing frequency response
+- **Dynamic:** Equations render one at a time, phase angles update, educational commentary guides you
+
+See how each pole pulls the response inward, each zero pushes it outward, and complex poles create beautiful spirals.
+
 [![Polar Poles & Zeros](videos/PolarPolesZerosEducational.mp4)](videos/PolarPolesZerosEducational.mp4)
+
+---
+
+*More animations coming soon!*
 
 ## 🚀 Quick Start
 
@@ -57,35 +70,36 @@ Flags:
 - **NumPy** - Numerical computations for transfer functions
 - **LaTeX** - Math equation rendering
 
-## 💡 Prompt Style & Approach
+## 💡 How This Was Built
 
-This project was developed iteratively using AI assistance with the following approach:
+This project was crafted iteratively with AI assistance, focusing on clarity and visual storytelling.
 
-### Development Process
-1. **Start Simple**: Begin with basic visualization (polar plot)
-2. **Iterate**: Add features progressively (poles, zeros, s-plane)
-3. **Educational Focus**: Each animation explains concepts clearly
-4. **Clean Structure**: Separate code, videos, and docs
+### Development Philosophy
+1. **Start Simple** → Begin with basic visualization, then layer complexity
+2. **Iterate Fast** → Build, render, refine, repeat
+3. **Educate First** → Every animation should teach something
+4. **Clean Code** → Organized structure for easy experimentation
 
-### Key Prompts Used
-- "Make an animation 9:16 for a polar plot visualization of a transfer function"
-- "Add poles and zeros progressively to show how the polar plot behaves"
-- "Make it educational with split-screen view (s-plane and polar plot)"
-- "Center pole/zero plots, render equations one at a time"
+### Key Prompts That Shaped This
+- *"Make an animation 9:16 for a polar plot visualization of a transfer function"*
+- *"Add poles and zeros progressively to show how the polar plot behaves"*
+- *"Make it educational with split-screen view (s-plane and polar plot)"*
+- *"Center pole/zero plots, render equations one at a time"*
 
 ### Design Principles
-- **Visual Clarity**: Split-screen layout for comparison
-- **Progressive Disclosure**: Build complexity gradually
-- **Color Coding**: Poles (red X), Zeros (green O), different colors per stage
-- **Annotations**: Phase angles, transfer functions, educational text
+- **Visual Clarity**: Split-screen layouts for side-by-side comparison
+- **Progressive Disclosure**: Build complexity gradually, don't overwhelm
+- **Color Coding**: Poles (red X), Zeros (green O), unique colors per stage
+- **Rich Annotations**: Phase angles, transfer functions, educational text
 
-## 🎨 Animation Features
+## ✨ What Makes These Animations Special
 
-- **S-Plane Visualization**: Real-time pole-zero placement
-- **Polar Plot (Nyquist)**: Frequency response visualization
-- **Glow Effects**: Animated cursor with trail
-- **LaTeX Math**: Transfer function equations rendered beautifully
-- **Educational Commentary**: Explains each stage's effects
+- **🎯 Real-Time Visualization**: Watch poles and zeros appear and transform the response instantly
+- **📐 Dual View**: S-plane and Nyquist plot side-by-side for complete understanding
+- **✨ Visual Effects**: Glowing cursor trails, smooth transitions, color-coded stages
+- **📝 LaTeX Math**: Beautifully rendered transfer function equations
+- **🎓 Educational**: Commentary explains *why* each change happens, not just *what*
+- **🎬 Cinematic**: 1080p60 renders with smooth animations and professional polish
 
 ## 📝 Adding New Animations
 

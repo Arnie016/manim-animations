@@ -1,0 +1,2 @@
+Visualizing complex math through beautiful animations | Educational Manim animations for control systems, transfer functions, and frequency response visualizations
+
