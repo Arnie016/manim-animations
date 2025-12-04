@@ -10,6 +10,17 @@ class RepoIntro(Scene):
     def construct(self):
         self.camera.background_color = "#0a0a1e"
         
+        # Add background music
+        # Note: Requires ffmpeg/ffprobe to be installed for audio support
+        import os
+        sound_file = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "sounds", "repo_intro.mp3"))
+        if os.path.exists(sound_file):
+            try:
+                self.add_sound(sound_file)
+            except Exception:
+                # If audio fails (e.g., ffprobe not found), continue without it
+                pass
+        
         # Start zoomed out, will zoom in throughout
         initial_scale = 1.0
         
@@ -17,7 +28,7 @@ class RepoIntro(Scene):
         title = Text("Manim Animations", font_size=72, color=WHITE, weight=BOLD)
         title.to_edge(UP, buff=0.6)
         
-        self.play(FadeIn(title), run_time=1.0)
+        self.play(FadeIn(title), run_time=0.5)
         self.wait(0.3)
         
         # 1. Repository Structure
