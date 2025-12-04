@@ -2,7 +2,11 @@
 
 Visualizing complex math through beautiful animations.
 
-📹 [Watch Intro](videos/repo_intro.mp4)
+## 🎬 Intro Video
+
+https://github.com/user-attachments/assets/repo_intro.mp4
+
+<video src="videos/repo_intro.mp4" controls width="100%"></video>
 
 ## Current Animation
 
