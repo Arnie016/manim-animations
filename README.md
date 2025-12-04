@@ -30,17 +30,10 @@ python3 -m manim code/01_poles_and_zeros.py PolarPolesZerosEducational -pqh
 
 ## Structure
 
-- `code/` - Animation scripts
-- `videos/` - Rendered MP4s
-- `sounds/` - Audio files (MP3, WAV) for each animation
-- `docs/` - Documentation
-
-## Structure
-
-Each animation is organized as a bundle:
+Each animation is organized as a numbered bundle:
 - **Video:** `videos/XX_Name.mp4`
 - **Code:** `code/XX_name.py`
 - **Sound:** `sounds/XX_Name.mp3` (if applicable)
-- **Docs:** `docs/XX_Name.md` (prompts, insights, development history)
+- **Docs:** `docs/XX_Name.md` (prompts, insights, development history, what worked/didn't)
 
 See individual doc files for detailed development history, prompts used, and insights.
