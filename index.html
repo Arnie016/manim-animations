@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manim Animation Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            color: white;
+        }
+        
+        header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        header p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            padding: 40px 0;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 177.78%; /* 9:16 aspect ratio */
+            background: #000;
+        }
+        
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .card-content {
+            padding: 25px;
+        }
+        
+        .card-content h2 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.6rem;
+        }
+        
+        .card-content p {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+        
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+        
+        .tag {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+        
+        .links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: opacity 0.3s;
+            font-weight: 600;
+        }
+        
+        .btn:hover {
+            opacity: 0.9;
+        }
+        
+        .btn-secondary {
+            background: #f0f0f0;
+            color: #667eea;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: white;
+            font-size: 1rem;
+        }
+        
+        footer a {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+            
+            header p {
+                font-size: 1.1rem;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>🎬 Manim Animations</h1>
+            <p>Educational physics and math visualizations</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="grid">
+            <!-- Animation 1 -->
+            <div class="card">
+                <div class="video-container">
+                    <video controls loop>
+                        <source src="videos/01_Repository_Intro.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="card-content">
+                    <h2>01. Repository Introduction</h2>
+                    <p>Welcome animation introducing the Manim animation repository, showcasing what viewers can expect: complex physics and math concepts visualized.</p>
+                    <div class="tags">
+                        <span class="tag">Introduction</span>
+                        <span class="tag">Manim</span>
+                    </div>
+                    <div class="links">
+                        <a href="https://github.com/Arnie016/manim-animations/blob/main/code/01_Repository_Intro.py" class="btn btn-secondary" target="_blank">View Code</a>
+                        <a href="https://github.com/Arnie016/manim-animations/blob/main/docs/01_Repository_Intro.md" class="btn btn-secondary" target="_blank">Read Docs</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Animation 2 -->
+            <div class="card">
+                <div class="video-container">
+                    <video controls loop>
+                        <source src="videos/02_Poles_and_Zeros.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="card-content">
+                    <h2>02. Poles and Zeros</h2>
+                    <p>Visualization of poles and zeros in the complex plane, showing how they affect system behavior in control theory and signal processing.</p>
+                    <div class="tags">
+                        <span class="tag">Control Theory</span>
+                        <span class="tag">Complex Analysis</span>
+                        <span class="tag">Signal Processing</span>
+                    </div>
+                    <div class="links">
+                        <a href="https://github.com/Arnie016/manim-animations/blob/main/code/02_Poles_and_Zeros.py" class="btn btn-secondary" target="_blank">View Code</a>
+                        <a href="https://github.com/Arnie016/manim-animations/blob/main/docs/02_Poles_and_Zeros.md" class="btn btn-secondary" target="_blank">Read Docs</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Animation 3 -->
+            <div class="card">
+                <div class="video-container">
+                    <video controls loop>
+                        <source src="videos/03_Gradient_Descent_Hyperloss.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="card-content">
+                    <h2>03. Gradient Descent on High-Dimensional Loss</h2>
+                    <p>A TikTok-ready animation demonstrating gradient descent on a high-dimensional loss landscape, showing how neural networks with millions of weights actually train.</p>
+                    <div class="tags">
+                        <span class="tag">Machine Learning</span>
+                        <span class="tag">Neural Networks</span>
+                        <span class="tag">Gradient Descent</span>
+                    </div>
+                    <div class="links">
+                        <a href="https://github.com/Arnie016/manim-animations/blob/main/code/03_Gradient_Descent_Hyperloss.py" class="btn btn-secondary" target="_blank">View Code</a>
+                        <a href="https://github.com/Arnie016/manim-animations/blob/main/docs/03_Gradient_Descent_Hyperloss.md" class="btn btn-secondary" target="_blank">Read Docs</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Animation 4 -->
+            <div class="card">
+                <div class="video-container">
+                    <video controls loop>
+                        <source src="videos/04_Photons_Pion_Decay.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="card-content">
+                    <h2>04. Photons & Pion Decay</h2>
+                    <p>Step-by-step derivation of neutral pion decay (π⁰ → γ + γ) using energy-momentum conservation and Lorentz invariants. Shows relativistic beaming and cosmic ray physics.</p>
+                    <div class="tags">
+                        <span class="tag">Particle Physics</span>
+                        <span class="tag">Relativity</span>
+                        <span class="tag">Quantum Mechanics</span>
+                    </div>
+                    <div class="links">
+                        <a href="https://github.com/Arnie016/manim-animations/blob/main/code/04_Photons_Pion_Decay.py" class="btn btn-secondary" target="_blank">View Code</a>
+                        <a href="https://github.com/Arnie016/manim-animations/blob/main/docs/04_Photons_Pion_Decay.md" class="btn btn-secondary" target="_blank">Read Docs</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Animation 5 -->
+            <div class="card">
+                <div class="video-container">
+                    <video controls loop>
+                        <source src="videos/05_Gravitational_Redshift.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="card-content">
+                    <h2>05. Gravitational Redshift</h2>
+                    <p>Visual intuitive explanation of gravitational redshift near a black hole. Shows how light loses energy climbing out of a gravity well, causing frequency decrease (redshift). No math - pure visual storytelling.</p>
+                    <div class="tags">
+                        <span class="tag">General Relativity</span>
+                        <span class="tag">Black Holes</span>
+                        <span class="tag">Astrophysics</span>
+                    </div>
+                    <div class="links">
+                        <a href="https://github.com/Arnie016/manim-animations/blob/main/code/05_Gravitational_Redshift.py" class="btn btn-secondary" target="_blank">View Code</a>
+                        <a href="https://github.com/Arnie016/manim-animations/blob/main/docs/05_Gravitational_Redshift.md" class="btn btn-secondary" target="_blank">Read Docs</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>Created with <a href="https://www.manim.community/" target="_blank">Manim</a> | 
+            <a href="https://github.com/Arnie016/manim-animations" target="_blank">View on GitHub</a></p>
+            <p style="margin-top: 10px; opacity: 0.9;">All animations designed for TikTok (9:16 format) with educational content</p>
+        </div>
+    </footer>
+</body>
+</html>
+
